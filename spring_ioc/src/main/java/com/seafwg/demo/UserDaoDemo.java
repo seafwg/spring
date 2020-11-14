@@ -1,6 +1,8 @@
 package com.seafwg.demo;
 
 import com.seafwg.dao.UserDao;
+import com.seafwg.service.UserService;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,5 +18,21 @@ public class UserDaoDemo {
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserDao userDao = (UserDao) app.getBean("UserDao");
         userDao.save();
+    }
+
+    // UserDaoImpl test:
+    @Test
+    public void test() {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao = (UserDao) app.getBean("UserDao");
+        userDao.save();
+    }
+
+    // UserServiceImpl test:
+    @Test
+    public void test1() {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserService userService = (UserService) app.getBean("UserService");
+        userService.save();
     }
 }

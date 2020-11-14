@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--suppress SpringFacetInspection -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="UserDao" class="com.seafwg.dao.impl.UserDaoImpl"></bean>
+<!--  集合类型：List<User>注入  -->
+    <bean id="u1" class="com.seafwg.domain.User">
+        <property name="name">
+            <value>wangwu</value>
+        </property>
+        <property name="addr">
+            <value>甘肃临洮</value>
+        </property>
+    </bean>
+    <bean id="u2" class="com.seafwg.domain.User">
+        <property name="name">
+            <value>seafwg</value>
+        </property>
+        <property name="addr">
+            <value>广州天河</value>
+        </property>
+    </bean>
+<!--  集合类型：List<User>注入  -->
+
+    <bean id="UserDao" class="com.seafwg.dao.impl.UserDaoImpl">
+        <property name="age" value="23" ></property>
+        <property name="company" value="翰智软件"></property>
+        <property name="stringList">
+            <list>
+                <value>seafwg</value>
+                <value>haifu</value>
+                <value>boy</value>
+            </list>
+        </property>
+        <property name="userList">
+            <list>
+<!--                <bean class="com.seafwg.domain.User"></bean>-->
+<!--                <bean class="com.seafwg.domain.User"></bean>-->
+                <ref bean="u1"/>
+                <ref bean="u2"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="UserService" class="com.seafwg.service.impl.UserServiceImpl">
+        <property name="userDao" ref="UserDao" />
+    </bean>
 </beans>
