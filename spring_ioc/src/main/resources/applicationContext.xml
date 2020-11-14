@@ -2,7 +2,9 @@
 <!--suppress SpringFacetInspection -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 <!--  集合类型：List<User>注入  -->
     <bean id="u1" class="com.seafwg.domain.User">
@@ -35,8 +37,6 @@
         </property>
         <property name="userList">
             <list>
-<!--                <bean class="com.seafwg.domain.User"></bean>-->
-<!--                <bean class="com.seafwg.domain.User"></bean>-->
                 <ref bean="u1"/>
                 <ref bean="u2"/>
             </list>
@@ -44,5 +44,28 @@
     </bean>
     <bean id="UserService" class="com.seafwg.service.impl.UserServiceImpl">
         <property name="userDao" ref="UserDao" />
+    </bean>
+    <!-- dataSource -->
+    <!--  c3p0  -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/seafwg"/>
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <!-- druid -->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/seafwg"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <!-- 从配置文件中抽取配置文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <bean id="dataSourceImport" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
 </beans>
