@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress SpringFacetInspection -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--  集合类型：List<User>注入  -->
+    <bean id="u1" class="com.seafwg.domain.User">
+        <property name="name">
+            <value>wangwu</value>
+        </property>
+        <property name="addr">
+            <value>甘肃临洮</value>
+        </property>
+    </bean>
+    <bean id="u2" class="com.seafwg.domain.User">
+        <property name="name">
+            <value>seafwg</value>
+        </property>
+        <property name="addr">
+            <value>广州天河</value>
+        </property>
+    </bean>
+<!--  集合类型：List<User>注入  -->
+
+    <bean id="UserDao" class="com.seafwg.dao.impl.UserDaoImpl">
+        <property name="age" value="23" ></property>
+        <property name="company" value="翰智软件"></property>
+        <property name="stringList">
+            <list>
+                <value>seafwg</value>
+                <value>haifu</value>
+                <value>boy</value>
+            </list>
+        </property>
+        <property name="userList">
+            <list>
+                <ref bean="u1"/>
+                <ref bean="u2"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="UserService" class="com.seafwg.service.impl.UserServiceImpl">
+        <property name="userDao" ref="UserDao" />
+    </bean>
+    <!-- dataSource -->
+    <!--  c3p0  -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/seafwg"/>
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <!-- druid -->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/seafwg"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <!-- 从配置文件中抽取配置文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <bean id="dataSourceImport" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!-- 组件注解扫描器 -->
+    <context:component-scan base-package="com.seafwg"></context:component-scan>
+    <!-- 配置Bean -->
+<!--    <bean id="userAnnoDao" class="com.seafwg.dao.impl.UserAnnoDaoImpl"></bean>-->
+<!--    <bean id="userAnnoService" class="com.seafwg.service.impl.UserAnnoServiceImpl">-->
+<!--        <property name="userAnnoDao" ref="userAnnoDao"></property>-->
+<!--    </bean>-->
+</beans>
