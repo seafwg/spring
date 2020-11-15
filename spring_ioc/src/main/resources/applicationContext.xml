@@ -68,4 +68,12 @@
         <property name="user" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
+
+    <!-- 组件注解扫描器 -->
+    <context:component-scan base-package="com.seafwg"></context:component-scan>
+    <!-- 配置Bean -->
+<!--    <bean id="userAnnoDao" class="com.seafwg.dao.impl.UserAnnoDaoImpl"></bean>-->
+<!--    <bean id="userAnnoService" class="com.seafwg.service.impl.UserAnnoServiceImpl">-->
+<!--        <property name="userAnnoDao" ref="userAnnoDao"></property>-->
+<!--    </bean>-->
 </beans>
