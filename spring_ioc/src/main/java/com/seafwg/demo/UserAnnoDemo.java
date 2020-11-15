@@ -1,10 +1,16 @@
 package com.seafwg.demo;
 
+import com.seafwg.annoConfig.SpringConfigurationCore;
 import com.seafwg.dao.UserAnnoDao;
 import com.seafwg.service.UserAnnoService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class UserAnnoDemo {
     @Test
@@ -18,5 +24,16 @@ public class UserAnnoDemo {
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserAnnoDao userAnnoDao = (UserAnnoDao) app.getBean("userAnnoDao");
         userAnnoDao.save();
+    }
+
+    /**
+     * 新注解spring核心配置类测试：
+     */
+    @Test
+    public void springConfigurationCoreTest() throws SQLException {
+        ApplicationContext app = new AnnotationConfigApplicationContext(SpringConfigurationCore.class);
+        DataSource dataSource = (DataSource) app.getBean("dataSource");
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
     }
 }
