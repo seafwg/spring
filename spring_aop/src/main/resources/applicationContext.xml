@@ -9,9 +9,9 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 ">
 <!--  配置目标类：  -->
-<!--    <bean id="target" class="com.seafwg.aopDemo.Target"></bean>-->
+<!--    <bean id="target" class="Target"></bean>-->
 <!--  配置切面类： -->
-<!--    <bean id="myAspect" class="com.seafwg.aopDemo.MyAspect"></bean>-->
+<!--    <bean id="myAspect" class="MyAspect"></bean>-->
 <!--  配置切点表达式和前置增强的织入关系  -->
 <!--  aop织入的配置  -->
 <!--    <aop:config>-->
