@@ -33,7 +33,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
         <!-- c3p0 连接池 -->
         <dependency>
@@ -52,6 +52,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.34</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
