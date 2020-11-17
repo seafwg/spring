@@ -8,7 +8,7 @@
     <version>1.8.13</version>
 </dependency>
 ```
-2.引入aop,tx[事务控制]命名空间
+2.引入context,aop,tx[事务控制]命名空间
 ```xml
 xmlns:tx="http://www.springframework.org/schema/tx"
 xmlns:aop="http://www.springframework.org/schema/aop"
