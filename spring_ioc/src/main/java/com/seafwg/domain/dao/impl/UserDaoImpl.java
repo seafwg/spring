@@ -1,7 +1,7 @@
 package com.seafwg.domain.dao.impl;
 
 import com.seafwg.domain.dao.UserDao;
-import com.seafwg.domain.domain.User;
+import com.seafwg.domain.User;
 
 import java.util.List;
 

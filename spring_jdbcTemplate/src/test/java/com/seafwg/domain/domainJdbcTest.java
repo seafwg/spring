@@ -1,7 +1,6 @@
 package com.seafwg.domain;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import com.seafwg.domain.domain.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

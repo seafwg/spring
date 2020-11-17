@@ -1,4 +1,4 @@
-package com.seafwg.domain.domain;
+package com.seafwg.domain;
 
 public class Account {
     private String username;
