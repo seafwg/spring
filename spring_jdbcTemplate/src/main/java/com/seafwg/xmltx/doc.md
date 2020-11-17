@@ -8,7 +8,15 @@
     <version>1.8.13</version>
 </dependency>
 ```
-2.配置基本注入spring容器的配置：业务层service,dao,dataSource,jdbcTemplate等
+2.引入aop,tx[事务控制]命名空间
+```xml
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+```
+3.配置基本注入spring容器的配置：业务层service,dao,dataSource,jdbcTemplate等
 ```xml
 <!--  加载jdbc配置文件properties  -->
     <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
@@ -32,14 +40,6 @@
     <bean id="accountService" class="com.seafwg.xmltx.service.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"></property>
     </bean>
-```
-3.引入aop,tx[事务控制]命名空间
-```xml
-xmlns:tx="http://www.springframework.org/schema/tx"
-xmlns:aop="http://www.springframework.org/schema/aop"
-xsi:schemaLocation="
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 ```
 4.配置事务增强：
 >①.配置平台管理器
