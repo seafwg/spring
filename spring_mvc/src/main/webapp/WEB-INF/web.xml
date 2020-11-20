@@ -3,6 +3,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!-- ======================Spring集成web====================== -->
+    <!--  配置映射路径：  -->
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.seafwg.web.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+    <!--  全局参数 加载applicationContext.xml配置文件 把spring-mvc加载到applicationContext-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    <!-- Spring 监听器 -->
+    <!-- 监听器中创建application -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- ======================Spring集成web====================== -->
+
+    <!-- ======================SpringMVC====================== -->
     <!--  配置前端控制器  -->
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
@@ -17,4 +40,5 @@
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <!-- ======================SpringMVC====================== -->
 </web-app>

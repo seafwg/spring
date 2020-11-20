@@ -1,6 +1,65 @@
+## spring 集成web
+### 1.导入springweb依赖坐标
+```pom
+<!--    spring web    -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>${spring.vsersion}</version>
+</dependency>
+```
+### 2.创建servlet,service,dao层逻辑，并注入spring容器中
+### 3.配置web.xml配置ContextLoaderListener监听器
+```xml
+## servlet基本配置映射路径
+<!--  配置映射路径：  -->
+<servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.seafwg.web.UserServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/userServlet</url-pattern>
+</servlet-mapping>
+
+## 重要配置：配置ContextLoaderListener监听器
+<!--  全局参数 加载applicationContext.xml配置文件 把spring-mvc加载到applicationContext-->
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+</context-param>
+<!-- Spring 监听器 -->
+<!-- 监听器中创建application -->
+<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+```
+**ContextLoaderListener主要作用：ContextLoaderListener监听servlet，
+SpringContext容器一创建就去创建一个WebApplicationContext();并且存放在在最大的servlet域中。
+在servlet层无需new ClassPathXmlApplicationContext("xxx");
+只需WebApplicationContextUtils.getWebApplicationContext()从spring容器中获取创建。**
+### 4.编写servlet
+```java
+public class UserServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //在未配置web.xml时加载applicationContext.xml创建spring容器：
+//        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        UserService userService = app.getBean(UserService.class);
+//        userService.save();
+
+        // spring集成web
+        ServletContext servletContext = this.getServletContext();
+        ApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        UserService userService = app.getBean(UserService.class);
+        userService.save();
+    }
+}
+```
+
 ## spring-mvc快速入门：
 ### 1.导入SpringMVC依赖坐标[spring-webmvc]：
-```xml
+```pom
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-context</artifactId>
