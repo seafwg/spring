@@ -12,5 +12,6 @@
 </head>
 <body>
 	<h2>hello spring-mvc success...</h2>
+	<h3>${username}</h3>
 </body>
 </html>
