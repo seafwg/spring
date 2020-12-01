@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userMapper">
+<!--  查询-所有用户数据：  -->
+    <select id="findAllUser" resultType="com.seafwg.domain.User">
+        SELECT * FROM user;
+    </select>
+<!--  条件查询-根据id查询某一用户数据 parameterType参数类型： -->
+    <select id="findUserById" resultType="com.seafwg.domain.User" parameterType="int">
+        SELECT * FROM user WHERE id=#{id};
+    </select>
+<!--  插入操作-  -->
+    <insert id="add" parameterType="com.seafwg.domain.User">
+        INSERT INTO user VALUES(#{id},#{username},#{password});
+    </insert>
+<!--  更新数据-修改数据  -->
+    <update id="modifyUser" parameterType="com.seafwg.domain.User">
+        UPDATE user SET username=#{username}, password=#{password} WHERE id=#{id};
+    </update>
+<!--  删除操作-删除某一条数据  -->
+    <!--
+    parameterType:删除操作具体某一个类型时使用具体的数据类型：
+    -->
+    <delete id="delUser" parameterType="java.lang.Integer">
+        DELETE FROM user WHERE id=#{id}
+    </delete>
+</mapper>
