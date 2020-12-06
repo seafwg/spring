@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seafwg.mapper.OrderMapper">
+    <resultMap id="orderMap" type="order">
+        <id column="oid" property="id"/>
+        <result column="ordertime" property="ordertime"/>
+        <result column="total" property="total"/>
+    </resultMap>
+    <select id="findAll" resultMap="orderMap">
+        SELECT *, o.id oid
+        FROM orders o,
+             USER u
+        WHERE o.uid = u.id;
+    </select>
+</mapper>
