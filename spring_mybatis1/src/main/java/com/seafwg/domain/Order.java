@@ -6,6 +6,10 @@ public class Order {
     private int id;
     private Date ordertime;
     private double total;
+    /**
+     * 用户表和订单表的关系为，一个用户有多个订单，一个订单只从属于一个用户
+     * 一对一查询的需求：查询一个订单，与此同时查询出该订单所属的用户
+     */
     //当前订单属于哪一个用户：[封装用户与订单的关系]
     private User user;
 

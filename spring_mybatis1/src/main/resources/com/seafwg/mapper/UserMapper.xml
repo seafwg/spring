@@ -2,36 +2,54 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.seafwg.mapper.UserMapper">
-    <!--  查询-所有用户数据：  -->
-    <select id="findAllUser" resultType="com.seafwg.domain.User">
-        SELECT *
-        FROM user;
+    <resultMap id="userMap" type="com.seafwg.domain.User">
+        <id column="uid" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <!--
+            property:当前实体类中的属性名：private List<Order> orderList;
+            ofType:当前属性的类型Order
+                [可以在mybatis核心配置文件中配置实体类型别名 ofType='order']
+                <typeAliases>
+                    <typeAlias type="com.itheima.domain.User" alias="user"></typeAlias>
+                    <typeAlias type="com.itheima.domain.Order" alias="order"></typeAlias>
+                    <typeAlias type="com.itheima.domain.Role" alias="role"></typeAlias>
+                </typeAliases>
+         -->
+        <collection property="orderList" ofType="com.seafwg.domain.Order">
+            <id column="oid" property="id"/>
+            <result column="ordertime" property="ordertime"/>
+            <result column="total" property="total"/>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="userMap">
+        --        SELECT *,o.id oid FROM USER u LEFT JOIN orders o ON u.id=o.uid;  -- 订单为空的数据显示
+        SELECT *, o.id oid
+        FROM USER u,
+             orders o
+        WHERE u.id = o.uid; -- 订单为空的数据不显示
     </select>
-    <!--  条件查询-根据id查询某一用户数据 parameterType参数类型： -->
-    <select id="findUserById" resultType="com.seafwg.domain.User" parameterType="int">
-        SELECT *
-        FROM user
-        WHERE id = #{id};
-    </select>
-    <!--  插入操作-  -->
-    <insert id="add" parameterType="com.seafwg.domain.User">
-        INSERT INTO user
-        VALUES (#{id}, #{username}, #{password});
-    </insert>
-    <!--  更新数据-修改数据  -->
-    <update id="modifyUser" parameterType="com.seafwg.domain.User">
-        UPDATE user
-        SET username=#{username},
-            password=#{password}
-        WHERE id = #{id};
-    </update>
-    <!--  删除操作-删除某一条数据  -->
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!--
-    parameterType:删除操作具体某一个类型时使用具体的数据类型：
-    -->
-    <delete id="delUser" parameterType="java.lang.Integer">
-        DELETE
-        FROM user
-        WHERE id = #{id}
-    </delete>
+        多对多的查询：
+     -->
+    <resultMap id="userRoleMap" type="com.seafwg.domain.User">
+        <id property="id" column="userId"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <collection property="roleList" ofType="com.seafwg.domain.Role">
+            <id property="id" column="roleId"/>
+            <result property="roleName" column="roleName"/>
+            <result property="roleDesc" column="roleDesc"/>
+        </collection>
+    </resultMap>
+    <select id="findUserAndRoleAll" resultMap="userRoleMap">
+        SELECT *
+        FROM USER u,
+             sys_user_role ur,
+             sys_role r
+        WHERE u.id = ur.userId
+          AND ur.roleId = r.id;
+    </select>
 </mapper>
