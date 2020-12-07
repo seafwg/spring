@@ -17,7 +17,10 @@
     </environments>
     <!-- 配置映射文件 -->
     <mappers>
-        <mapper resource="com/seafwg/mapper/UserMapper.xml"></mapper>
-        <mapper resource="com/seafwg/mapper/OrderMapper.xml"></mapper>
+        <!--        <mapper resource="com/seafwg/mapper/UserMapper.xml"></mapper>-->
+        <!--        <mapper resource="com/seafwg/mapper/OrderMapper.xml"></mapper>-->
+        <!-- 使用注解配置mappers注解的类 -->
+        <!--        <mapper class="com.seafwg.mapper.UserMapper"></mapper>-->
+        <package name="com.seafwg.anno_mapper"/>
     </mappers>
 </configuration>
