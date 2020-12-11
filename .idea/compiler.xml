@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_jdbcTemplate" />
+        <module name="spring_ioc" />
+        <module name="spring_ssm2" />
+        <module name="spring_mvc" />
+        <module name="spring_mybatis" />
+        <module name="spring_mvc_case" />
+        <module name="spring_aop" />
+        <module name="spring_mybatis1" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring_aop" target="1.5" />
+      <module name="spring_demo" target="1.5" />
+      <module name="spring_ioc" target="6" />
+      <module name="spring_jdbcTemplate" target="1.5" />
+      <module name="spring_mvc" target="1.5" />
+      <module name="spring_mvc_case" target="1.5" />
+      <module name="spring_mvc_test" target="1.5" />
+      <module name="spring_mybatis" target="1.5" />
+      <module name="spring_mybatis1" target="8" />
+      <module name="spring_ssm" target="8" />
+      <module name="spring_ssm1" target="8" />
+      <module name="spring_ssm2" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

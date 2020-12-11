@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring.iml" filepath="$PROJECT_DIR$/.idea/spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_aop/spring_aop.iml" filepath="$PROJECT_DIR$/spring_aop/spring_aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ioc/spring_ioc.iml" filepath="$PROJECT_DIR$/spring_ioc/spring_ioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_jdbcTemplate/spring_jdbcTemplate.iml" filepath="$PROJECT_DIR$/spring_jdbcTemplate/spring_jdbcTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc/spring_mvc.iml" filepath="$PROJECT_DIR$/spring_mvc/spring_mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_case/spring_mvc_case.iml" filepath="$PROJECT_DIR$/spring_mvc_case/spring_mvc_case.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" filepath="$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mybatis1/spring_mybatis1.iml" filepath="$PROJECT_DIR$/spring_mybatis1/spring_mybatis1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ssm2/spring_ssm2.iml" filepath="$PROJECT_DIR$/spring_ssm2/spring_ssm2.iml" />
+    </modules>
+  </component>
+</project>

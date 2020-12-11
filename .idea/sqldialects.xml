@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/spring_mybatis/src/main/resources/com/seafwg/mapper/UserMapper.xml" dialect="GenericSQL" />
+    <file url="file://F:/BaiduNetdiskDownload/hema/就业班2.1笔记源码-压缩版/阶段3：会员版(2.1)-主流框架/3-3 就业课(2.1)-Spring+SpringMVC综合练习/Spring+SpringMVC综合练习/素材/test.sql" dialect="MySQL" />
+  </component>
+</project>
