@@ -1,12 +1,10 @@
-package com.seafwg.mapper;
+package com.seafwg.service;
 
 import com.seafwg.domain.Account;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface AccountMapper {
+public interface AccountService {
     /**
      * 保存账户信息：
      *

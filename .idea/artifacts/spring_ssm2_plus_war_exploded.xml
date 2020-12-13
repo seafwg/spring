@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="spring_ssm:war exploded">
-    <output-path>$PROJECT_DIR$/spring_ioc/artifacts/spring_ssm_war_exploded</output-path>
+  <artifact type="exploded-war" name="spring_ssm2_plus:war exploded">
+    <output-path>$PROJECT_DIR$/spring_ioc/artifacts/spring_ssm2_plus_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spring_ssm" />
+          <element id="module-output" name="spring_ssm2_plus" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.5.RELEASE" />
@@ -30,7 +30,7 @@
           <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.0" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="spring_ssm/web/Web" />
+      <element id="javaee-facet-resources" facet="spring_ssm2_plus/web/Web" />
     </root>
   </artifact>
 </component>

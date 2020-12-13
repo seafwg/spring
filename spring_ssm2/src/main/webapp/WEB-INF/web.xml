@@ -26,7 +26,7 @@
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!--乱码过滤器-->
+    <!--乱码过滤器 数据请求时设置的格式：-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

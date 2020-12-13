@@ -1,11 +1,9 @@
 package com.seafwg.mapper;
 
 import com.seafwg.domain.Account;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface AccountMapper {
     /**
      * 保存账户信息：
@@ -15,7 +13,7 @@ public interface AccountMapper {
     void save(Account account);
 
     /**
-     * 查询账户信息：
+     * 查找账户信息：
      *
      * @return
      */

@@ -12,6 +12,7 @@
         <module name="spring_mvc" />
         <module name="spring_mybatis" />
         <module name="spring_mvc_case" />
+        <module name="spring_ssm2_plus" />
         <module name="spring_aop" />
         <module name="spring_mybatis1" />
       </profile>
@@ -29,6 +30,7 @@
       <module name="spring_ssm" target="8" />
       <module name="spring_ssm1" target="8" />
       <module name="spring_ssm2" target="8" />
+      <module name="spring_ssm2_plus" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
