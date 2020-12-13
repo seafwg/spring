@@ -9,6 +9,7 @@
         <module name="spring_jdbcTemplate" />
         <module name="spring_ioc" />
         <module name="spring_ssm2" />
+        <module name="spring_dataJPA" />
         <module name="spring_mvc" />
         <module name="spring_mybatis" />
         <module name="spring_mvc_case" />
@@ -19,6 +20,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring_aop" target="1.5" />
+      <module name="spring_dataJPA" target="8" />
       <module name="spring_demo" target="1.5" />
       <module name="spring_ioc" target="6" />
       <module name="spring_jdbcTemplate" target="1.5" />
